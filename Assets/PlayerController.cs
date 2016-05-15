@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 12f;
+    public float speed = 20f;
     public bool grounded;
     public bool isEnemy = false;
 
 	// Use this for initialization
 	void Start () {
 
-	}
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,6 +53,12 @@ public class PlayerController : MonoBehaviour {
             SceneManager.LoadScene("GameOver"); ;
         }
 
+        float hor = speed * Input.GetAxis("Mouse X");
+        float ver = speed * Input.GetAxis("Mouse Y");
+
+        Vector3 pos = new Vector3(hor, ver);
+
+        transform.Translate(pos * Time.deltaTime);
         
     }
 }

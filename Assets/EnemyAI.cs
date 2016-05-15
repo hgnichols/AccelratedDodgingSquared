@@ -13,12 +13,14 @@ public class EnemyAI : MonoBehaviour {
     void Start () {
 
         movement = new Vector2(moveSpeedX, moveSpeedY);
-        physics = GetComponent<Rigidbody2D>();
+        physics = GetComponent<Rigidbody2D>();     
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+
 
         physics.velocity = movement;
 
