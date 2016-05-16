@@ -5,10 +5,12 @@ public class enemy1AI : MonoBehaviour {
     public float moveSpeedX = 1f;
     public float moveSpeedY = .5f;
     public bool grounded = false;
+    public bool enemy = true;
     public float speedChangeX;
     public float speedChangeXOld;
     public float speedChangeY;
     public float speedChangeYOld;
+    public float speed;
 	// Use this for initialization
 	void Start () {
 
@@ -16,6 +18,7 @@ public class enemy1AI : MonoBehaviour {
         speedChangeYOld = 0;
         speedChangeX = 0;
         speedChangeY = 0;
+        speed = 0;
 	}
 	
 	// Update is called once per frame
@@ -36,22 +39,22 @@ public class enemy1AI : MonoBehaviour {
             moveSpeedY = (-moveSpeedY);
             if(moveSpeedX < 0)
             {
-                moveSpeedX = moveSpeedX - 0.09f - speedChangeX + speedChangeXOld;
+                moveSpeedX = moveSpeedX - 0.09f - (speedChangeX + speedChangeXOld) - speed;
             }
 
             if (moveSpeedX > 0)
             {
-                moveSpeedX = moveSpeedX + 0.09f + speedChangeX - speedChangeXOld;
+                moveSpeedX = moveSpeedX + 0.09f + (speedChangeX - speedChangeXOld) + speed;
             }
 
             if (moveSpeedY < 0)
             {
-                moveSpeedY = moveSpeedY - 0.09f - speedChangeY + speedChangeYOld;
+                moveSpeedY = moveSpeedY - 0.09f - (speedChangeY + speedChangeYOld) - speed;
             }
 
             if (moveSpeedY > 0)
             {
-                moveSpeedY = moveSpeedY + 0.09f + speedChangeY - speedChangeYOld;
+                moveSpeedY = moveSpeedY + 0.09f + (speedChangeY - speedChangeYOld) + speed;
             }
 
             transform.Translate(transform.right * Time.deltaTime * (moveSpeedX));
@@ -59,6 +62,7 @@ public class enemy1AI : MonoBehaviour {
             grounded = false;
             speedChangeXOld = speedChangeX;
             speedChangeYOld = speedChangeY;
+            speed += 0.2f;
 
         }
    

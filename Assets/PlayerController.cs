@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float speed = 20f;
     public bool grounded;
-    public bool isEnemy = false;
+    public bool enemy = false;
 
 	// Use this for initialization
 	void Start () {

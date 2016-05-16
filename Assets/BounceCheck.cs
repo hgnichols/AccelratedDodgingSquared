@@ -7,20 +7,32 @@ public class BounceCheck : MonoBehaviour {
 
     void Start()
     {
+
         player = gameObject.GetComponentInParent<enemy1AI>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
+       // try
+        //{
+          //  if (!col.GetComponent<enemy1AI>().enemy)
+          //  {
+
+                player.grounded = true;
+           // }
+      //  } catch (System.NullReferenceException e)
+       // {
+
             player.grounded = true;
+       // }
+            
         
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
 
-            player.grounded = false;
-        
+            player.grounded = false;       
     }
 }
 

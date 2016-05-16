@@ -8,12 +8,15 @@ public class EnemyAI : MonoBehaviour {
     Rigidbody2D physics;
     public bool grounded = false;
     public Vector2 velocityChange;
+    public float speed;
+    public bool enemy = true;
 
     // Use this for initialization
     void Start () {
 
         movement = new Vector2(moveSpeedX, moveSpeedY);
-        physics = GetComponent<Rigidbody2D>();     
+        physics = GetComponent<Rigidbody2D>();
+        speed = 0f;    
 
     }
 	
@@ -51,7 +54,6 @@ public class EnemyAI : MonoBehaviour {
 
                 movement.y += 0.09f;
             }
-            physics.velocity = movement;
         }
     }
 }
