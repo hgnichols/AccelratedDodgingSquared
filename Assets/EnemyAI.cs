@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
-    public static Vector2 movement;
+    public Vector2 movement;
     public float moveSpeedX = 1f;
     public float moveSpeedY = .5f;
     Rigidbody2D physics;
@@ -35,24 +35,28 @@ public class EnemyAI : MonoBehaviour {
             {
 
                 movement.x += 0.09f;
+                grounded = false;
             }
 
             if (movement.x < 0)
             {
 
                 movement.x -= 0.09f;
+                grounded = false;
             }
 
             if (movement.y < 0)
             {
 
                 movement.y -= 0.09f;
+                grounded = false;
             }
 
             if (movement.y > 0)
             {
 
                 movement.y += 0.09f;
+                grounded = false;
             }
         }
     }
